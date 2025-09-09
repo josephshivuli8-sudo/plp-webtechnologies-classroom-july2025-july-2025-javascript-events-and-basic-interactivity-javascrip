@@ -1,0 +1,134 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+body.dark-mode .interactive-box,
+body.dark-mode #form-validation {
+    background-color: #444;
+}
+
+body.dark-mode input,
+body.dark-mode button {
+    background-color: #555;
+    color: #f4f4f4;
+    border-color: #666;
+}
+
+body.dark-mode button:hover {
+    background-color: #666;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1, h2 {
+    color: #2c3e50;
+    text-align: center;
+}
+
+body.dark-mode h1, body.dark-mode h2 {
+    color: #f4f4f4;
+}
+
+section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.interactive-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+/* Button Styling */
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: 1px solid #2c3e50;
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Collapsible FAQ styles */
+.faq-question {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: #ecf0f1;
+    color: #333;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.faq-question:hover, .faq-question.active {
+    background: #bdc3c7;
+}
+
+.faq-answer {
+    display: none;
+    padding: 10px 15px;
+    background: #f9f9f9;
+    border-left: 3px solid #3498db;
+    margin-bottom: 10px;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensures padding doesn't affect total width */
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: none; /* Hidden by default */
+}
+
+.success-message {
+    color: #27ae60;
+    font-weight: bold;
+    margin-top: 10px;
+}
