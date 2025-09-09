@@ -1,0 +1,116 @@
+// =========================================================================
+// Part 1 & 2: Event Handling and Interactive Elements
+// =========================================================================
+
+// Feature 1: Light/Dark Mode Toggle
+// This section listens for a click on the "mode-toggle" button
+// and changes the class on the body to switch between themes.
+document.getElementById('mode-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
+
+// Feature 2: Click Counter
+// This section demonstrates event listeners for a simple button game.
+const counterBtn = document.getElementById('counter-btn');
+const resetBtn = document.getElementById('reset-btn');
+const clickCountSpan = document.getElementById('click-count');
+let clickCount = 0;
+
+// Listen for a click on the "Click Me!" button
+counterBtn.addEventListener('click', () => {
+    clickCount++;
+    clickCountSpan.textContent = clickCount;
+});
+
+// Listen for a click on the "Reset" button
+resetBtn.addEventListener('click', () => {
+    clickCount = 0;
+    clickCountSpan.textContent = clickCount;
+});
+
+// Feature 3: Collapsible FAQ
+// This section uses event delegation to handle clicks on multiple FAQ questions.
+// When a question is clicked, it toggles the visibility of the answer.
+document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+        const answer = button.nextElementSibling;
+        button.classList.toggle('active');
+        if (answer.style.display === "block") {
+            answer.style.display = "none";
+        } else {
+            answer.style.display = "block";
+        }
+    });
+});
+
+// =========================================================================
+// Part 3: Custom Form Validation
+// =========================================================================
+
+const form = document.getElementById('registration-form');
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
+const confirmPasswordInput = document.getElementById('confirm-password');
+const formSuccessMessage = document.getElementById('form-success');
+
+form.addEventListener('submit', (e) => {
+    // Prevent the default form submission behavior
+    e.preventDefault();
+    
+    // Clear previous error messages and success messages
+    clearErrors();
+    
+    // Perform validation and check if the form is valid
+    if (validateForm()) {
+        // If the form is valid, show a success message
+        formSuccessMessage.textContent = "Form submitted successfully!";
+        form.reset(); // Clear the form fields
+    }
+});
+
+function validateForm() {
+    let isValid = true;
+
+    // Validate Name
+    if (nameInput.value.trim() === '') {
+        showError(nameInput, 'Name is required.');
+        isValid = false;
+    }
+
+    // Validate Email using a regular expression
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailInput.value.trim())) {
+        showError(emailInput, 'Please enter a valid email address.');
+        isValid = false;
+    }
+
+    // Validate Password
+    if (passwordInput.value.length < 8) {
+        showError(passwordInput, 'Password must be at least 8 characters long.');
+        isValid = false;
+    }
+
+    // Validate Confirm Password
+    if (passwordInput.value !== confirmPasswordInput.value) {
+        showError(confirmPasswordInput, 'Passwords do not match.');
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+function showError(inputElement, message) {
+    const errorDiv = document.getElementById(`${inputElement.id}-error`);
+    errorDiv.textContent = message;
+    errorDiv.style.display = 'block';
+}
+
+function clearErrors() {
+    const errorMessages = document.querySelectorAll('.error-message');
+    errorMessages.forEach(el => {
+        el.textContent = '';
+        el.style.display = 'none';
+    });
+    formSuccessMessage.textContent = '';
+}
