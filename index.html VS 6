@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Interactive JavaScript Demo</h1>
+        <p>Exploring event handling, interactive elements, and form validation.</p>
+        <button id="mode-toggle">Toggle Light/Dark Mode</button>
+    </header>
+
+    <main>
+
+        <section id="event-handling">
+            <h2>Part 1 & 2: Interactive Elements</h2>
+
+            <div class="interactive-box">
+                <h3>Click Counter</h3>
+                <p>Clicks: <span id="click-count">0</span></p>
+                <button id="counter-btn">Click Me!</button>
+                <button id="reset-btn">Reset</button>
+            </div>
+
+            <div class="interactive-box">
+                <h3>Collapsible FAQ</h3>
+                <div class="faq-item">
+                    <button class="faq-question">What is this page about?</button>
+                    <div class="faq-answer">
+                        <p>This page demonstrates core JavaScript concepts, including event handling, DOM manipulation, and form validation.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What is a DOM?</button>
+                    <div class="faq-answer">
+                        <p>The Document Object Model (DOM) is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        
+        <section id="form-validation">
+            <h2>Part 3: Custom Form Validation</h2>
+            <form id="registration-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name">
+                    <div class="error-message" id="name-error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+                    <div class="error-message" id="email-error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password">
+                    <div class="error-message" id="password-error"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password">
+                    <div class="error-message" id="confirm-password-error"></div>
+                </div>
+                
+                <button type="submit">Submit</button>
+                <div id="form-success" class="success-message"></div>
+            </form>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
